@@ -1,0 +1,253 @@
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+#logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #00ffcc;
+  text-transform: uppercase;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav ul li a:hover {
+  color: #00ffcc;
+}
+
+/* Intro Section */
+.intro-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #000, #0a0a0a); /* Darker background */
+  position: relative;
+  overflow: hidden;
+}
+
+.intro-box {
+  text-align: center;
+  z-index: 2; /* Ensure text is above particles */
+}
+
+.intro-msg {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 4rem;
+  color: #00ffcc;
+  text-transform: uppercase;
+}
+
+#text-1 {
+  display: block;
+  font-size: 2rem;
+  color: #fff;
+  opacity: 1; /* Ensure text is fully visible */
+}
+
+#text-2 {
+  display: block;
+  font-size: 4rem;
+  color: #00ffcc;
+  opacity: 1; /* Ensure text is fully visible */
+}
+
+#text-3 {
+  display: block;
+  font-size: 1.5rem;
+  color: #fff;
+  opacity: 1; /* Ensure text is fully visible */
+}
+
+.start-btn {
+  margin-top: 30px;
+  opacity: 1; /* Ensure button is fully visible */
+}
+
+.msg-btn {
+  background-color: #00ffcc;
+  color: #000;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.msg-btn:hover {
+  background-color: #00ccaa;
+}
+
+/* Glowing Particles */
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Particles behind text */
+}
+
+.particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #00ffcc;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc, 0 0 60px #00ffcc;
+  opacity: 0.3; /* Reduced opacity for better visibility */
+}     
+
+/* About Section */
+.about {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 100px 50px;
+  background-color: #000;
+}
+
+.about-box {
+  background-color: #1a1a1a;
+  padding: 30px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 255, 204, 0.2);
+}
+
+#title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  color: #00ffcc;
+  display: block;
+  margin-bottom: 10px;
+}
+
+#para {
+  font-size: 1rem;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* Footer */
+footer {
+  background-color: #1a1a1a;
+  padding: 50px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 24px;
+  color: #00ffcc;
+}
+
+.footer-links ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-links ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+  color: #00ffcc;
+}
+
+.footer-social a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #00ffcc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+      padding: 20px;
+  }
+
+  .nav ul {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .intro-msg {
+      font-size: 2.5rem;
+  }
+
+  #text-1 {
+      font-size: 1.5rem;
+  }
+
+  #text-2 {
+      font-size: 2.5rem;
+  }
+
+  #text-3 {
+      font-size: 1rem;
+  }
+
+  .about {
+      padding: 50px 20px;
+  }
+
+  .footer-content {
+      flex-direction: column;
+      gap: 20px;
+  }
+}

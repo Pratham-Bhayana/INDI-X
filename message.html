@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Message Box - INDI-X</title>
+    <link rel="stylesheet" href="message.css"> <!-- Separate CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <section class="header">
+        <div id="logo">INDI-X</div>
+        <div class="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login-signup.html">Login/Signup</a></li>
+                <li><a class="active" href="message.html">Chat</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Message Box Section -->
+    <section class="message-page">
+        <!-- Connected Users Section -->
+        <div class="connected-users">
+            <span id="user1">User1: <span class="username">Alice</span></span>
+            <span id="user2">User2: <span class="username">Bob</span></span>
+        </div>
+
+        <!-- Chat Box -->
+        <div class="chat-box">
+            <div class="chat-messages" id="chat-messages">
+                <!-- Messages will appear here dynamically -->
+            </div>
+
+            <!-- Chat Input -->
+            <div class="chat-input">
+                <button id="emoji-btn"><i class="fas fa-smile"></i></button>
+                <button id="file-btn"><i class="fas fa-paperclip"></i></button>
+                <input type="text" id="message-input" placeholder="Type your message...">
+                <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+
+        <!-- Quit Options -->
+        <div class="quit-options">
+            <button id="quit-btn">Quit Chat</button>
+            <div class="quit-modal" id="quit-modal">
+                <p>Are you sure you want to quit?</p>
+                <button id="quit-without-save">Quit Without Saving</button>
+                <button id="save-and-quit">Save and Quit</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Glowing Particles -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
+    <script src="message.js"></script> <!-- Separate JS file for message box interactions -->
+</body>
+</html>
