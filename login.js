@@ -1,52 +1,83 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Show Signup Form
-  const showSignupBtn = document.getElementById("show-signup");
-  const showLoginBtn = document.getElementById("show-login");
-  const loginForm = document.getElementById("login");
-  const signupForm = document.getElementById("signup");
+// login.js
+import { auth } from './firebase.js';
 
-  showSignupBtn.addEventListener("click", () => {
-      loginForm.classList.remove("active");
-      signupForm.classList.add("active");
-  });
+document.addEventListener("DOMContentLoaded", () => {
+    const loginForm = document.getElementById("login");
+    const signupForm = document.getElementById("signup");
+    const showSignupBtn = document.getElementById("show-signup");
+    const showLoginBtn = document.getElementById("show-login");
 
-  showLoginBtn.addEventListener("click", () => {
-      signupForm.classList.remove("active");
-      loginForm.classList.add("active");
-  });
+    if (!loginForm || !signupForm || !showSignupBtn || !showLoginBtn) {
+        return;
+    }
 
-  // GSAP Animations for Auth Box
-  gsap.from(".auth-box", {
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      delay: 0.5,
-      ease: "power2.out",
-  });
+    loginForm.classList.add("active");
+    signupForm.classList.remove("active");
 
-  // Glowing Particles Animation
-  const particles = document.querySelectorAll(".particle");
+    showSignupBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        loginForm.classList.remove("active");
+        signupForm.classList.add("active");
+    });
 
-  particles.forEach((particle, index) => {
-      gsap.to(particle, {
-          x: gsap.utils.random(-500, 500),
-          y: gsap.utils.random(-500, 500),
-          opacity: gsap.utils.random(0.1, 0.3),
-          scale: gsap.utils.random(0.5, 2),
-          duration: gsap.utils.random(3, 5),
-          repeat: -1,
-          yoyo: true,
-          delay: gsap.utils.random(0, 2),
-          ease: "power1.inOut",
-      });
-  });
+    showLoginBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        signupForm.classList.remove("active");
+        loginForm.classList.add("active");
+    });
 
-  // Background Glow Effect
-  gsap.to(".auth-page", {
-      background: `linear-gradient(135deg, #000, #0a0a0a, #000)`,
-      repeat: -1,
-      yoyo: true,
-      duration: 5,
-      ease: "power1.inOut",
-  });
+    loginForm.querySelector("form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = document.getElementById("login-email").value.trim();
+        const password = document.getElementById("login-password").value.trim();
+
+        if (!email || !password) {
+            alert("Please enter both email and password.");
+            return;
+        }
+
+        auth.signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                window.location.href = "message.html";
+            })
+            .catch((error) => {
+                alert("Login failed: " + error.message);
+            });
+    });
+
+    signupForm.querySelector("form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = document.getElementById("signup-email").value.trim();
+        const password = document.getElementById("signup-password").value.trim();
+        const confirmPassword = document.getElementById("confirm-password").value.trim();
+
+        if (!email || !password || !confirmPassword) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            alert("Passwords do not match.");
+            return;
+        }
+
+        auth.createUserWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                window.location.href = "message.html";
+            })
+            .catch((error) => {
+                alert("Signup failed: " + error.message);
+            });
+    });
+
+    gsap.from(".auth-box", { opacity: 0, y: 50, duration: 1, ease: "power2.out" });
+    gsap.to(".particle", {
+        x: "random(-500, 500)",
+        y: "random(-500, 500)",
+        scale: "random(0.5, 2)",
+        duration: "random(3, 5)",
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut"
+    });
 });

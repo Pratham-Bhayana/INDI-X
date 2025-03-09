@@ -4,27 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Login/Signup - INDI-X</title>
-    <link rel="stylesheet" href="login-signup.css"> <!-- Separate CSS file -->
+    <link rel="stylesheet" href="login-signup.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header Section -->
-    <section class="header">
-        <div id="logo">INDI-X</div>
-        <div class="nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a class="active" href="login-signup.html">Login/Signup</a></li>
-                <li><a href="message.html">Contact</a></li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Login/Signup Section -->
     <section class="auth-page">
         <div class="auth-box">
-            <!-- Login Form (Visible by Default) -->
             <div id="login" class="auth-form active">
                 <h2>Login to INDI-X</h2>
                 <form>
@@ -41,7 +27,6 @@
                 <p class="switch-text">Don't have an account? <button id="show-signup">Signup</button></p>
             </div>
 
-            <!-- Signup Form (Hidden by Default) -->
             <div id="signup" class="auth-form">
                 <h2>Join INDI-X</h2>
                 <form>
@@ -63,7 +48,6 @@
             </div>
         </div>
 
-        <!-- Glowing Particles -->
         <div class="particles">
             <div class="particle"></div>
             <div class="particle"></div>
@@ -73,9 +57,8 @@
         </div>
     </section>
 
-    <!-- Scripts -->
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="login.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
-    <script src="login.js"></script> <!-- Separate JS file for login/signup interactions -->
 </body>
 </html>
